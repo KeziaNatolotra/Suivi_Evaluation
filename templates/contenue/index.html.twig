@@ -1,0 +1,428 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page Suivi-Evaluation{% endblock %}
+{% block body %}
+{% include 'partials/header.html.twig' %} 
+        <div class="container">
+        <aside class="sidebar">
+            <a href="#" class="nav-item active" data-page="dashboard">
+                <i class="fas fa-tachometer-alt"></i>
+                Tableau de Bord
+            </a>
+            <a href="#" class="nav-item" data-page="indicators">
+                <i class="fas fa-chart-line"></i>
+                Indicateurs de Performance
+            </a>
+            <a href="#" class="nav-item" data-page="projects">
+                <i class="fas fa-project-diagram"></i>
+                Projets
+            </a>
+            <a href="#" class="nav-item" data-page="evaluations">
+                <i class="fas fa-clipboard-check"></i>
+                Évaluations Trimestrielles
+            </a>
+            <a href="#" class="nav-item" data-page="reports">
+                <i class="fas fa-file-alt"></i>
+                Rapports d'Activités
+            </a>
+            <div class="nav-divider"></div>
+            <a href="#" class="nav-item" data-page="action-plan">
+                <i class="fas fa-tasks"></i>
+                Plan d'Action
+            </a>
+            <a href="#" class="nav-item" data-page="risks">
+                <i class="fas fa-exclamation-triangle"></i>
+                Gestion des Risques
+            </a>
+            <div class="nav-divider"></div>
+            <a href="#" class="nav-item" data-page="settings">
+                <i class="fas fa-cog"></i>
+                Paramètres
+            </a>
+            <a href="#" class="nav-item" data-page="help">
+                <i class="fas fa-question-circle"></i>
+                Aide & Support
+            </a>
+        </aside>
+        
+        <main>
+            <!-- Tableau de bord-->
+            <div class="main-content active" id="dashboard">
+                <div class="page-header">
+                    <h2><i class="fas fa-tachometer-alt"></i> Tableau de Bord</h2>
+                    <p>Vue d'ensemble des activités et performances du ministère</p>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <i class="fas fa-project-diagram"></i>
+                        <div class="stat-value">24</div>
+                        <div class="stat-label">Projets Actifs</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="stat-value">82%</div>
+                        <div class="stat-label">Taux d'Achèvement</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <div class="stat-value">78%</div>
+                        <div class="stat-label">Budget Utilisé</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Risques Actifs</div>
+                    </div>
+                </div>                
+                <div class="page-header">
+                    <h2><i class="fas fa-list"></i> Dernières Activités</h2>
+                </div>
+                
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Mission</th>
+                                <th>Projet</th>
+                                <th>Responsable</th>
+                                <th>Date d'Échéance</th>
+                                <th>Avancement</th>
+                                <th>Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Programme</td>
+                                <td>Dr. Alain Dubois</td>
+                                <td>15/12/2023</td>
+                                <td>
+                                    <div style="background: #e0e0e0; border-radius: 4px; height: 8px;">
+                                        <div style="background: var(--success); width: 85%; height: 100%; border-radius: 4px;"></div>
+                                    </div>
+                                    <div style="text-align: right; font-size: 14px; margin-top: 5px;">85%</div>
+                                </td>
+                                <td><span class="status completed">En avance</span></td>
+                            </tr>
+                            <tr>
+                                <td>Réforme du Système de Santé</td>
+                                <td>Dr. Marie Lambert</td>
+                                <td>30/11/2023</td>
+                                <td>
+                                    <div style="background: #e0e0e0; border-radius: 4px; height: 8px;">
+                                        <div style="background: var(--warning); width: 65%; height: 100%; border-radius: 4px;"></div>
+                                    </div>
+                                    <div style="text-align: right; font-size: 14px; margin-top: 5px;">65%</div>
+                                </td>
+                                <td><span class="status in-progress">En cours</span></td>
+                            </tr>
+                            <tr>
+                                <td>Développement des Infrastructures Rurales</td>
+                                <td>Ing. Thomas Martin</td>
+                                <td>20/10/2023</td>
+                                <td>
+                                    <div style="background: #e0e0e0; border-radius: 4px; height: 8px;">
+                                        <div style="background: var(--danger); width: 45%; height: 100%; border-radius: 4px;"></div>
+                                    </div>
+                                    <div style="text-align: right; font-size: 14px; margin-top: 5px;">45%</div>
+                                </td>
+                                <td><span class="status delayed">Retard</span></td>
+                            </tr>
+                            <tr>
+                                <td>Projet d'Agriculture Durable</td>
+                                <td>Dr. Sophie Bernard</td>
+                                <td>05/12/2023</td>
+                                <td>
+                                    <div style="background: #e0e0e0; border-radius: 4px; height: 8px;">
+                                        <div style="background: var(--success); width: 92%; height: 100%; border-radius: 4px;"></div>
+                                    </div>
+                                    <div style="text-align: right; font-size: 14px; margin-top: 5px;">92%</div>
+                                </td>
+                                <td><span class="status completed">Terminé</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Indicators Page -->
+            <div class="main-content" id="indicators">
+                <div class="page-header">
+                    <h2><i class="fas fa-chart-line"></i> Indicateurs de Performance</h2>
+                    <p>Suivi des indicateurs clés de performance ministériels</p>
+                </div>
+                
+                <div class="form-container">
+                    <div class="form-group">
+                        <label>Période d'Évaluation</label>
+                        <select class="form-control">
+                            <option>3ème Trimestre 2023</option>
+                            <option>2ème Trimestre 2023</option>
+                            <option>1er Trimestre 2023</option>
+                            <option>2025 - Année Complète</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Domaine Ministériel</label>
+                        <select class="form-control">
+                            <option>Tous les domaines</option>
+                            <option>Éducation Nationale</option>
+                            <option>Santé Publique</option>
+                            <option>Infrastructures</option>
+                            <option>Agriculture</option>
+                            <option>Développement Rural</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-primary">Générer le Rapport</button>
+                </div>
+                
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">Indicateurs Clés de Performance</div>
+                        </div>
+                        <div class="chart">
+                            <div class="chart-bar">
+                                <div class="bar" style="height: 180px; background: linear-gradient(to top, #004e7c, #2c5f2d);"></div>
+                                <div class="bar-label">Efficacité</div>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="bar" style="height: 220px; background: linear-gradient(to top, #004e7c, #2c5f2d);"></div>
+                                <div class="bar-label">Efficience</div>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="bar" style="height: 150px; background: linear-gradient(to top, #004e7c, #2c5f2d);"></div>
+                                <div class="bar-label">Impact</div>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="bar" style="height: 250px; background: linear-gradient(to top, #004e7c, #2c5f2d);"></div>
+                                <div class="bar-label">Qualité</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">Comparaison Trimestrielle</div>
+                        </div>
+                        <div class="chart">
+                            <div class="chart-bar">
+                                <div class="bar" style="height: 120px; background: #2c5f2d;"></div>
+                                <div class="bar-label">T1</div>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="bar" style="height: 180px; background: #2c5f2d;"></div>
+                                <div class="bar-label">T2</div>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="bar" style="height: 220px; background: #2c5f2d;"></div>
+                                <div class="bar-label">T3</div>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="bar" style="height: 180px; background: #ccc;"></div>
+                                <div class="bar-label">T4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="page-header">
+                    <h2><i class="fas fa-table"></i> Détail des Indicateurs</h2>
+                </div>
+                
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Indicateur</th>
+                                <th>Cible</th>
+                                <th>Réalisé</th>
+                                <th>Taux</th>
+                                <th>Tendance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Taux de scolarisation primaire</td>
+                                <td>95%</td>
+                                <td>92.3%</td>
+                                <td>97.1%</td>
+                                <td><i class="fas fa-arrow-up" style="color: var(--success);"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Taux de vaccination infantile</td>
+                                <td>90%</td>
+                                <td>88.7%</td>
+                                <td>98.6%</td>
+                                <td><i class="fas fa-arrow-up" style="color: var(--success);"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Kilomètres de routes réhabilitées</td>
+                                <td>350 km</td>
+                                <td>287 km</td>
+                                <td>82%</td>
+                                <td><i class="fas fa-arrow-down" style="color: var(--danger);"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Accès à l'eau potable en milieu rural</td>
+                                <td>85%</td>
+                                <td>83.5%</td>
+                                <td>98.2%</td>
+                                <td><i class="fas fa-arrow-up" style="color: var(--success);"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Taux de pauvreté</td>
+                                <td>30%</td>
+                                <td>31.2%</td>
+                                <td>-</td>
+                                <td><i class="fas fa-arrow-up" style="color: var(--danger);"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Projects Page -->
+            <div class="main-content" id="projects">
+                <div class="page-header">
+                    <h2><i class="fas fa-project-diagram"></i> Projets Ministériels</h2>
+                    <p>Gestion et suivi des projets en cours et à venir</p>
+                </div>
+                
+                <div class="form-container">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label>Statut du Projet</label>
+                            <select class="form-control">
+                                <option>Tous les statuts</option>
+                                <option>En cours</option>
+                                <option>Terminé</option>
+                                <option>En retard</option>
+                                <option>Planifié</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Domaine</label>
+                            <select class="form-control">
+                                <option>Tous les domaines</option>
+                                <option>Éducation</option>
+                                <option>Santé</option>
+                                <option>Infrastructure</option>
+                                <option>Agriculture</option>
+                                <option>Environnement</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Nouveau Projet</button>
+                </div>
+                
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Projet</th>
+                                <th>Domaine</th>
+                                <th>Budget</th>
+                                <th>Date Début</th>
+                                <th>Date Fin</th>
+                                <th>Avancement</th>
+                                <th>Statut</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Evaluation Page -->
+            <div class="main-content" id="evaluations">
+                <div class="page-header">
+                    <h2><i class="fas fa-clipboard-check"></i> Évaluations Trimestrielles</h2>
+                    <p>Rapports d'évaluation périodiques des performances ministérielles</p>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div class="stat-value">T3 2023</div>
+                        <div class="stat-label">Évaluation en cours</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-check"></i>
+                        <div class="stat-value">76%</div>
+                        <div class="stat-label">Objectifs Atteints</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chart-pie"></i>
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Indicateurs Évalués</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Domaines Critiques</div>
+                    </div>
+                </div>
+                
+                <div class="form-container">
+                    <h3 style="margin-bottom: 20px; color: var(--primary);">Rapport d'Évaluation Trimestriel</h3>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label>Période d'Évaluation</label>
+                            <select class="form-control">
+                                <option>3ème Trimestre 2023 (Juillet-Septembre)</option>
+                                <option>2ème Trimestre 2023 (Avril-Juin)</option>
+                                <option>1er Trimestre 2023 (Janvier-Mars)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Responsable d'Évaluation</label>
+                            <input type="text" class="form-control" value="Unité d'Évaluation Ministérielle">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Synthèse des Performances</label>
+                        <textarea class="form-control" rows="4">Le troisième trimestre montre des progrès significatifs dans les domaines de l'éducation et de la santé, avec des taux d'achèvement de projet dépassant les attentes. Cependant, des retards persistent dans les projets d'infrastructure rurale, nécessitant des mesures correctives immédiates. Globalement, 76% des indicateurs clés ont atteint ou dépassé leurs cibles trimestrielles.</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Recommandations</label>
+                        <textarea class="form-control" rows="4">1. Renforcer les équipes sur les projets d'infrastructure en retard
+2. Réallouer une partie du budget des projets terminés en avance vers les projets critiques
+3. Organiser une revue trimestrielle avec tous les chefs de projet
+4. Mettre en place un système d'alerte précoce pour les indicateurs en baisse</textarea>
+                    </div>
+                    
+                    <button class="btn btn-primary"><i class="fas fa-download"></i> Générer le Rapport</button>
+                    <button class="btn" style="background: #e0e0e0; margin-left: 10px;">Soumettre pour Validation</button>
+                </div>
+                
+                <div class="page-header">
+                    <h2><i class="fas fa-history"></i> Historique des Évaluations</h2>
+                </div>
+                
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Période</th>
+                                <th>Date d'Évaluation</th>
+                                <th>Indicateurs Évalués</th>
+                                <th>Taux de Réussite</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+{% include 'partials/footer.html.twig' %}
+{% endblock %}
