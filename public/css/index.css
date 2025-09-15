@@ -1,18 +1,43 @@
+.content {
+    background: var(--light);
+    border-radius: 12px;
+    box-shadow: 0 5px 10px var(--dark);
+    width: 90%;
+    padding: 20px 40px;
+    margin-top:25px;
+    margin-left:75px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.content:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--warning));
+}
 .hero-section {
-    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-    background-size: cover;
-    background-position: center;
-    color: white;
+    color: black;
     padding: 6rem 0;
     text-align: center;
 }
 
 .hero-title {
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    background-size: cover;
+    background-position: center;
+    color: black;
 }
-
+.hero-title:after{
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: var(--warning);
+    margin: 15px auto;
+}
 .hero-description {
     font-size: 1.3rem;
     max-width: 800px;
@@ -22,7 +47,7 @@
 .btn-explore {
     display: inline-block;
     background-color: #3498db;
-    color: white;
+    color: var(--light);
     padding: 12px 30px;
     border-radius: 50px;
     text-decoration: none;
@@ -33,7 +58,7 @@
 
 .btn-explore:hover {
     background-color: transparent;
-    color: white;
+    color: var(--dark);
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
@@ -85,11 +110,13 @@
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
-
+.feature-card h3{
+    color: rgb(6, 94, 35);
+}
 .feature-icon {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color:  #3498db;
+    color:yellowgreen
 }
 
 .stat-number {
@@ -100,7 +127,7 @@
 }
 
 .stat-label {
-    color: #7f8c8d;
+    color: var(--dark);
     font-weight: 500;
 }
 

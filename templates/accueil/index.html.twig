@@ -10,6 +10,7 @@
 {% include 'partials/header.html.twig' %}
     <!-- Main Content -->
     <main>
+    <div class="content">
         <!-- Hero Section -->
         <section class="hero-section">
             <h1 class="hero-title">Bienvenue sur la plateforme de suivi stratégique</h1>
@@ -17,6 +18,7 @@
             <a  href="{{path('app_contenue')}}" class="btn-explore">Accéder à la plateforme <i class="fas fa-arrow-right ms-2"></i></a><br><br><br>
             <a href="#features" class="btn-explore">En savoir plus <i class="fas fa-info-circle ms-2"></i></a>
         </section>
+    </div>
         <section id="features">
                 <h2 class="section-title">Fonctionnalités principales</h2>
                 <p class="section-subtitle">Découvrez les outils puissants qui permettent un suivi efficace des projets stratégiques et indicateurs de performance.</p>
@@ -43,7 +45,7 @@
                     </div>
                     
                     <div>
-                        <div class="feature-card">g
+                        <div class="feature-card">
                             <div class="feature-icon">
                                 <i class="fas fa-file-alt"></i>
                             </div>
@@ -53,7 +55,7 @@
                     </div>
                 </div>
         </section>
-        <!-- Statistics Section -->
+        <!-- Section statistique -->
         <section class="py-5 bg-light-custom">
                 <h2 class="section-title">Notre impact en chiffres</h2>
                 <p class="section-subtitle">Découvrez l'étendue de notre action à travers ces indicateurs clés.</p>
@@ -130,25 +132,14 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="resource-card">
-                            <h4><i class="fas fa-chart-bar text-success me-2"></i> Modèles prédéfinis</h4>
-                            <p>Utilisez nos modèles prédéfinis pour démarrer rapidement avec vos projets.</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary">Télécharger</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
+
                         <div class="resource-card">
                             <h4><i class="fas fa-book text-warning me-2"></i> Documentation technique</h4>
-                            <p>Accédez à la documentation technique pour les intégrations avancées.</p>
+                            <p>Accédez à la documentation technique pour les intégrations avancées et faciliter l'utilisation.</p>
                             <a href="#" class="btn btn-sm btn-outline-primary">Consulter</a>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="resource-card">
-                            <h4><i class="fas fa-video text-info me-2"></i> Tutoriels vidéo</h4>
-                            <p>Regardez nos tutoriels vidéo pour apprendre à utiliser la plateforme.</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary">Voir les vidéos</a>
-                        </div>
+                    
                     </div>
                 </div>
         </section>
@@ -157,8 +148,8 @@
                 <h2 class="mb-4">Prêt à optimiser votre suivi de projets?</h2>
                 <p class="mb-4">Rejoignez les nombreuses organisations qui utilisent déjà notre plateforme pour améliorer leur gestion de projets.</p>
                 <a href="#" class="btn btn-light btn-lg me-3">Créer un compte</a>
-                <a href="#" class="btn btn-outline-light btn-lg">Nous contacter</a>
+                <a href="#" class="btn btn-light btn-lg me-3">Nous contacter</a>
         </section>
     </main>
-
+{% include 'partials/footer.html.twig' %}
 {% endblock %}
