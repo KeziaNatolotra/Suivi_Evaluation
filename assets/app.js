@@ -3,7 +3,8 @@ import 'bootstrap';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles/app.css';
 import './js/header.js';
-import './js/accueil.js'; 
+import './js/accueil.js';
+import './js/index.js';
 /*
  * Welcome to your app's main JavaScript file!
  *

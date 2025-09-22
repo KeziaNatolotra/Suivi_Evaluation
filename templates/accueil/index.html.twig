@@ -7,18 +7,18 @@
 {% endblock %}
 
 {% block body %}
-{% include 'partials/header.html.twig' %}
+{% include 'partials/header.html.twig' %} 
     <!-- Main Content -->
     <main>
-    <div class="content">
         <!-- Hero Section -->
+    <div class="content">
         <section class="hero-section">
             <h1 class="hero-title">Bienvenue sur la plateforme de suivi stratégique</h1>
             <p class="hero-description">Cette plateforme dédiée permet le suivi des projets stratégiques et des indicateurs de performance du Ministère de la Communication et de la Culture de Madagascar.</p>
-            <a  href="{{path('app_contenue')}}" class="btn-explore">Accéder à la plateforme <i class="fas fa-arrow-right ms-2"></i></a><br><br><br>
+            <a href="{{path('app_login')}}" class="btn-explore">Accéder à la plateforme <i class="fas fa-arrow-right ms-2"></i></a><br><br><br>
             <a href="#features" class="btn-explore">En savoir plus <i class="fas fa-info-circle ms-2"></i></a>
         </section>
-    </div>
+    
         <section id="features">
                 <h2 class="section-title">Fonctionnalités principales</h2>
                 <p class="section-subtitle">Découvrez les outils puissants qui permettent un suivi efficace des projets stratégiques et indicateurs de performance.</p>
@@ -55,31 +55,7 @@
                     </div>
                 </div>
         </section>
-        <!-- Section statistique -->
-        <section class="py-5 bg-light-custom">
-                <h2 class="section-title">Notre impact en chiffres</h2>
-                <p class="section-subtitle">Découvrez l'étendue de notre action à travers ces indicateurs clés.</p>
-                
-                <div class="row text-center">
-                    <div class="col-md-3 col-6 mb-4">
-                        <div class="stat-number">42</div>
-                        <div class="stat-label">Projets actifs</div>
-                    </div>
-                    <div class="col-md-3 col-6 mb-4">
-                        <div class="stat-number">156</div>
-                        <div class="stat-label">Indicateurs suivis</div>
-                    </div>
-                    <div class="col-md-3 col-6 mb-4">
-                        <div class="stat-number">24</div>
-                        <div class="stat-label">Partenaires</div>
-                    </div>
-                    <div class="col-md-3 col-6 mb-4">
-                        <div class="stat-number">89%</div>
-                        <div class="stat-label">Taux de réalisation</div>
-                    </div>
-                </div>
-        </section>
-        <section class="py-5">
+            <section class="py-5">
                 <h2 class="section-title">Comment ça marche</h2>
                 <p class="section-subtitle">Notre plateforme simplifie le suivi et l'évaluation de vos projets en 3 étapes simples.</p>
                 
@@ -127,22 +103,18 @@
                     <div class="col-md-6">
                         <div class="resource-card">
                             <h4><i class="fas fa-file-pdf text-danger me-2"></i> Guides d'utilisation</h4>
-                            <p>Consultez les guides complets pour maîtriser toutes les fonctionnalités de la plateforme.</p>
                             <a href="#" class="btn btn-sm btn-outline-primary">Télécharger</a>
                         </div>
                     </div>
                     <div class="col-md-6">
-
                         <div class="resource-card">
                             <h4><i class="fas fa-book text-warning me-2"></i> Documentation technique</h4>
-                            <p>Accédez à la documentation technique pour les intégrations avancées et faciliter l'utilisation.</p>
                             <a href="#" class="btn btn-sm btn-outline-primary">Consulter</a>
                         </div>
                     </div>
-                    
-                    </div>
                 </div>
         </section>
+    </div>
         <!-- Call to Action Section -->
         <section class="cta-section">
                 <h2 class="mb-4">Prêt à optimiser votre suivi de projets?</h2>
@@ -151,5 +123,6 @@
                 <a href="#" class="btn btn-light btn-lg me-3">Nous contacter</a>
         </section>
     </main>
+
 {% include 'partials/footer.html.twig' %}
 {% endblock %}

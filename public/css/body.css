@@ -17,3 +17,7 @@
 body{
     background-color:var(--light);
 }
+h5{
+    color:var(--light);
+    text-align: center;
+}

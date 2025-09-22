@@ -1,578 +1,762 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Page Suivi-Evaluation{% endblock %}
+
 {% block body %}
-{% include 'partials/header.html.twig' %} 
-    <div class="container">
-        <aside class="sidebar">
-            <a href="#" class="nav-item active" data-page="dashboard">
-                <i class="fas fa-tachometer-alt"></i>
-                Tableau de Bord
+{% include 'partials/header.html.twig' %}
+
+<div class="container">
+    <!-- Navigation -->
+    <aside class="sidebar">
+        <!-- Tableau de Bord -->
+        <a href="#" class="nav-item active" data-page="dashboard">
+            <i class="fas fa-tachometer-alt"></i> Tableau de Bord
+        </a>
+
+        <!-- Gestion des personnels -->
+        <div class="nav-divider"></div>
+            <h5>Département d'entreprise</h5>
+            <a href="#" class="nav-item" data-page="employee">
+                <i class="fas fa-user-group"></i> Employés
+            </a>
+
+        <!-- Mission de l'entreprise -->
+        <div class="nav-divider"></div>
+            <h5>Mission d'entreprise</h5>
+            <a href="#" class="nav-item" data-page="activites">
+                <i class="fas fa-business-time"></i> Activités
+            </a>
+            <a href="#" class="nav-item" data-page="objectif">
+                <i class="fas fa-bullseye"></i> Objectifs
             </a>
             <a href="#" class="nav-item" data-page="indicators">
-                <i class="fas fa-chart-line"></i>
-                Indicateurs de Performance
-            </a>
-            <a href="#" class="nav-item" data-page="mission">
-                <i class="fas fa-clipboard-list"></i>
-                Mission
+                <i class="fas fa-chart-line"></i> Indicateurs de Performance
             </a>
             <a href="#" class="nav-item" data-page="projects">
-                <i class="fas fa-project-diagram"></i>
-                Projets
-            </a>
-                <a href="#" class="nav-item" data-page="activites">
-                <i class="fas fa-business-time"></i>
-                Activités
+                <i class="fas fa-project-diagram"></i> Projets
             </a>
             <a href="#" class="nav-item" data-page="evaluations">
-                <i class="fas fa-clipboard-check"></i>
-                Évaluations Trimestrielles
-            </a>
-            <a href="#" class="nav-item" data-page="rapports">
-                <i class="fas fa-file-alt"></i>
-                Rapports d'Activités
+                <i class="fas fa-clipboard-check"></i> Évaluations Trimestrielles
             </a>
             <div class="nav-divider"></div>
             <a href="#" class="nav-item" data-page="plan-d-action">
-                <i class="fas fa-tasks"></i>
-                Plan d'Action
+                <i class="fas fa-tasks"></i> Plan d'Action
             </a>
             <a href="#" class="nav-item" data-page="risque">
-                <i class="fas fa-exclamation-triangle"></i>
-                Gestion des Risques
+                <i class="fas fa-exclamation-triangle"></i> Gestion des Risques
             </a>
             <div class="nav-divider"></div>
 
             <a href="#" class="nav-item" data-page="help">
-                <i class="fas fa-question-circle"></i>
-                Aide & Support
+                <i class="fas fa-question-circle"></i> Aide & Support
             </a>
-        </aside>
-        
-        <main>
-            <!-- Tableau de bord-->
-            <div class="main-content active" id="dashboard">
-                <div class="page-header">
-                    <h2><i class="fas fa-tachometer-alt"></i> Tableau de Bord</h2>
-                    <p>Vue d'ensemble des activités et performances du ministère</p>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Tableau de Bord -->
+        <div class="main-content active" id="dashboard">
+            <div class="page-header">
+                <div class="tableau">
+                <h2><i class="fas fa-tachometer-alt"></i> Tableau de Bord</h2>
+            
+                <!-- Bouton pour ouvrir le modal Calendrier -->
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#calendarModal">
+                    <i class="fas fa-calendar"></i>
+                </button>
                 </div>
-                
-                <div class="stats-container">
-                    <div class="stat-card">
-                        <i class="fas fa-project-diagram"></i>
-                        <div class="stat-value">24</div>
-                        <div class="stat-label">Projets Actifs</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-check-circle"></i>
-                        <div class="stat-value">82%</div>
-                        <div class="stat-label">Taux d'Achèvement</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-money-bill-wave"></i>
-                        <div class="stat-value">78%</div>
-                        <div class="stat-label">Budget Utilisé</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <div class="stat-value">5</div>
-                        <div class="stat-label">Risques Actifs</div>
-                    </div>
-                </div>                
-                <div class="page-header">
-                    <h2><i class="fas fa-list"></i> Dernières Activités</h2>
+            </div>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <div class="stat-value">24</div>
+                    <div class="stat-label">Projets Actifs</div>
                 </div>
-                
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="stat-value">82%</div>
+                    <div class="stat-label">Taux d'Achèvement</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <div class="stat-value">78%</div>
+                    <div class="stat-label">Budget Utilisé</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Risques Actifs</div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Graphique 1: Progression d'activites -->
+                <div class="col-xl-8 col-lg-7">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Progression des Activités</h6>
+                            <div class="dropdown no-arrow">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="activityProgressChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Graphique 2: Repatition par statut -->
+                <div class="col-xl-4 col-lg-5">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Répartition par Statut</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-pie pt-4 pb-2">
+                                <canvas id="statusPieChart"></canvas>
+                            </div>
+                            <div class="mt-4 text-center small">
+                                <span class="mr-2">
+                                    <i class="fas fa-circle text-success"></i> Complété
+                                </span>
+                                <span class="mr-2">
+                                    <i class="fas fa-circle text-primary"></i> En Cours
+                                </span>
+                                <span class="mr-2">
+                                    <i class="fas fa-circle text-warning"></i> En Retard
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-header">
+                <h2><i class="fas fa-list"></i> Dernières Activités</h2>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Mission</th>
+                            <th>Projet</th>
+                            <th>Responsable</th>
+                            <th>Date d'Échéance</th>
+                            <th>Avancement</th>
+                            <th>Statut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+            <!-- Modal Calendrier -->
+            <div class="modal fade" id="calendarModal" tabindex="-1" aria-labelledby="calendarModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="calendarModalLabel">Calendrier des Échéances</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="calendar"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <!-- Gestion des Employés -->
+        <div class="main-content" id="employee">
+            <div class="page-header">
+                <h2><i class="fas fa-user-group"></i> Gestion des Employés</h2>
+                <p>Gestion des informations et performances des employés</p>
+            </div>
+            <div class="form-container">
+                <h3 style="margin-bottom: 20px; color: var(--primary);">Ajouter un Employé</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input type="text" class="form-control" placeholder="Nom de l'employé">
+                    </div>
+                    <div class="form-group">
+                        <label>Prénom</label>
+                        <input type="text" class="form-control" placeholder="Prénom de l'employé">
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="email@exemple.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Département</label>
+                        <select class="form-control">
+                            <option>Sélectionner un département</option>
+                            <option>Ressources Humaines</option>
+                            <option>Finance</option>
+                            <option>Informatique</option>
+                            <option>Projets</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Rôle</label>
+                    <input type="text" class="form-control" placeholder="Rôle dans l'entreprise">
+                </div>
+                <button class="btn btn-primary"><i class="fas fa-plus"></i> Ajouter Employé</button>
+            </div>
+            <div class="page-header">
+                <h2><i class="fas fa-list"></i> Liste des Employés</h2>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Email</th>
+                            <th>Département</th>
+                            <th>Rôle</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Placeholder for dynamic data -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Activités -->
+        <div class="main-content" id="activites">
+            <div class="page-header">
+                <h2><i class="fas fa-business-time"></i> Activités</h2>
+            </div>
+            <!-- TACHE -->
+            <div class="form-container">
+                <h3 style="margin-bottom: 20px; color: var(--primary);">Ajouter une Tâche</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Nom de la Tâche</label>
+                        <input type="text" class="form-control" placeholder="Nouvelle tâche" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Délai</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Responsable</label>
+                    <select class="form-control">
+                        <option>Sélectionner un responsable</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary"><i class="fas fa-plus"></i> Ajouter une tâche</button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tacheModal">
+                    <i class="fas fa-list-check"></i> Liste des tâches
+                </button>
+
+                <!-- Modal Liste des Tâches -->
+                <div class="modal fade" id="tacheModal" tabindex="-1" aria-labelledby="tacheModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="tacheModalLabel"><i class="fas fa-check"></i> Liste des Tâches</h3>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="table-container">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Tâche</th>
+                                                <th>Délai</th>
+                                                <th>Responsable</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <!-- Placeholder for dynamic data -->
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Générer un rapport -->
+            <div class="form-container">
+                <h3 style="margin-bottom: 20px; color: var(--primary);">Rapports d'Activités</h3>
+                <button class="btn btn-primary"><i class="fas fa-file-alt"></i> Générer Rapport</button>
+            
+                <!-- Liste des rapports d'activités -->
+                <div class="page-header">
+                    <h3><i class="fas fa-history"></i> Liste des Rapports d'Activités</h3>
+                </div>
                 <div class="table-container">
                     <table class="data-table">
                         <thead>
                             <tr>
-                                <th>Mission</th>
+                                <th>Rapport</th>
                                 <th>Projet</th>
                                 <th>Responsable</th>
-                                <th>Date d'Échéance</th>
-                                <th>Avancement</th>
                                 <th>Statut</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
-
                     </table>
                 </div>
             </div>
-            
-            <!-- Indicateur d'activités -->
-            <div class="main-content" id="indicators">
-                <div class="page-header">
-                    <h2><i class="fas fa-chart-line"></i> Indicateurs de Performance</h2>
-                    <p>Suivi des indicateurs clés de performance ministériels</p>
+        </div>
+        
+        <!-- Objectifs -->
+        <div class="main-content" id="objectif">
+            <div class="page-header">
+                <h2><i class="fas fa-bullseye"></i> Objectifs</h2>
+            </div>
+            <!-- Formulaire pour ajouter un objectif -->
+            <div class="form-container">
+                <h3 style="margin-bottom: 20px; color: var(--primary);">Ajouter un Objectif Spécifique</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Nom de l'Objectif</label>
+                        <input type="text" class="form-control" placeholder="Nom de l'objectif" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Échéance</label>
+                        <input type="date" class="form-control" required>
+                    </div>
                 </div>
-                
-                <div class="form-container">
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" rows="4" placeholder="Décrire l'objectif"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Responsable</label>
+                    <select class="form-control">
+                        <option>Sélectionner un responsable</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary"><i class="fas fa-plus"></i> Ajouter Objectif</button>
+            </div>
+            <!-- Liste des objectifs -->
+            <div class="page-header">
+                <h3><i class="fas fa-list"></i> Liste des Objectifs</h3>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Objectif</th>
+                            <th>Description</th>
+                            <th>Échéance</th>
+                            <th>Responsable</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+        <!-- Indicateurs de Performance -->
+        <div class="main-content" id="indicators">
+            <div class="page-header">
+                <h2><i class="fas fa-chart-line"></i> Indicateurs de Performance</h2>
+                <p>Suivi des indicateurs clés de performance ministériels</p>
+            </div>
+            <div class="form-container">
+                <div class="form-group">
+                    <label>Période d'Évaluation</label>
+                    <select class="form-control">
+                        <option>3ème Trimestre 2025</option>
+                        <option>2ème Trimestre 2025</option>
+                        <option>1er Trimestre 2025</option>
+                        <option>2025 - Année Complète</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary">Générer le Rapport</button>
+            </div>
+            <div class="charts-container">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Indicateurs Clés de Performance</div>
+                    </div>
+                    <div class="chart">
+                        <div class="chart-bar">
+                            <div class="bar" style="height: 180px; background: linear-gradient(to top, #004e7c, #2c5f2d);"></div>
+                            <div class="bar-label">Efficacité</div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar" style="height: 220px; background: linear-gradient(to top, #004e7c, #2c5f2d);"></div>
+                            <div class="bar-label">Efficience</div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar" style="height: 150px; background: linear-gradient(to top, #004e7c, #2c5f2d);"></div>
+                            <div class="bar-label">Impact</div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar" style="height: 250px; background: linear-gradient(to top, #004e7c, #2c5f2d);"></div>
+                            <div class="bar-label">Qualité</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Comparaison Trimestrielle</div>
+                    </div>
+                    <div class="chart">
+                        <div class="chart-bar">
+                            <div class="bar" style="height: 120px; background: #2c5f2d;"></div>
+                            <div class="bar-label">T1</div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar" style="height: 180px; background: #2c5f2d;"></div>
+                            <div class="bar-label">T2</div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar" style="height: 220px; background: #2c5f2d;"></div>
+                            <div class="bar-label">T3</div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar" style="height: 180px; background: #ccc;"></div>
+                            <div class="bar-label">T4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-header">
+                <h2><i class="fas fa-table"></i> Détail des Indicateurs</h2>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Indicateur</th>
+                            <th>Cible</th>
+                            <th>Réalisé</th>
+                            <th>Taux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Placeholder for dynamic data -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Projets -->
+        <div class="main-content" id="projects">
+            <div class="page-header">
+                <h2><i class="fas fa-project-diagram"></i> Projets</h2>
+                <p>Gestion et suivi des projets en cours et à venir</p>
+            </div>
+            <div class="form-container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Statut du Projet</label>
+                        <select class="form-control">
+                            <option>Tous les statuts</option>
+                            <option>En cours</option>
+                            <option>Terminé</option>
+                            <option>En retard</option>
+                            <option>Planifié</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-primary"><i class="fas fa-plus"></i> Nouveau Projet</button>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Projet</th>
+                            <th>Domaine</th>
+                            <th>Budget</th>
+                            <th>Date Début</th>
+                            <th>Date Fin</th>
+                            <th>Avancement</th>
+                            <th>Statut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Placeholder for dynamic data -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Évaluations Trimestrielles -->
+        <div class="main-content" id="evaluations">
+            <div class="page-header">
+                <h2><i class="fas fa-clipboard-check"></i> Évaluations Trimestrielles</h2>
+                <p>Rapports d'évaluation périodiques des performances ministérielles</p>
+            </div>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div class="stat-value">T3 2025</div>
+                    <div class="stat-label">Évaluation en cours</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check"></i>
+                    <div class="stat-value">76%</div>
+                    <div class="stat-label">Objectifs Atteints</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <div class="stat-value">18</div>
+                    <div class="stat-label">Indicateurs Évalués</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Domaines Critiques</div>
+                </div>
+            </div>
+            <div class="form-container">
+                <h3 style="margin-bottom: 20px; color: var(--primary);">Rapport d'Évaluation Trimestriel</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div class="form-group">
                         <label>Période d'Évaluation</label>
                         <select class="form-control">
-                            <option>3ème Trimestre 2023</option>
-                            <option>2ème Trimestre 2023</option>
-                            <option>1er Trimestre 2023</option>
-                            <option>2025 - Année Complète</option>
+                            <option>3ème Trimestre 2025 (Juillet-Septembre)</option>
+                            <option>2ème Trimestre 2025 (Avril-Juin)</option>
+                            <option>1er Trimestre 2025 (Janvier-Mars)</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label>Responsable d'Évaluation</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Synthèse des Performances</label>
+                    <textarea class="form-control" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Recommandations</label>
+                    <textarea class="form-control" rows="4"></textarea>
+                </div>
+                <button class="btn btn-primary"><i class="fas fa-download"></i> Générer le Rapport</button>
+                <button class="btn" style="background: #e0e0e0; margin-left: 10px;">Soumettre pour Validation</button>
+            </div>
+            <div class="page-header">
+                <h2><i class="fas fa-history"></i> Historique des Évaluations</h2>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Période</th>
+                            <th>Date d'Évaluation</th>
+                            <th>Indicateurs Évalués</th>
+                            <th>Taux de Réussite</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Placeholder for dynamic data -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-                    <button class="btn btn-primary">Générer le Rapport</button>
+        <!-- Plan d'Action -->
+        <div class="main-content" id="plan-d-action">
+            <div class="page-header">
+                <h2><i class="fas fa-tasks"></i> Plan d'Action</h2>
+                <p>Gestion et suivi des plans d'action ministériels</p>
+            </div>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-list-alt"></i>
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Plans d'Action Actifs</div>
                 </div>
-                
-                <div class="charts-container">
-                    <div class="chart-card">
-                        <div class="chart-header">
-                            <div class="chart-title">Indicateurs Clés de Performance</div>
-                        </div>
-                        <div class="chart">
-                            <div class="chart-bar">
-                                <div class="bar" style="height: 180px; background: linear-gradient(to top, #004e7c, #2c5f2d);"></div>
-                                <div class="bar-label">Efficacité</div>
-                            </div>
-                            <div class="chart-bar">
-                                <div class="bar" style="height: 220px; background: linear-gradient(to top, #004e7c, #2c5f2d);"></div>
-                                <div class="bar-label">Efficience</div>
-                            </div>
-                            <div class="chart-bar">
-                                <div class="bar" style="height: 150px; background: linear-gradient(to top, #004e7c, #2c5f2d);"></div>
-                                <div class="bar-label">Impact</div>
-                            </div>
-                            <div class="chart-bar">
-                                <div class="bar" style="height: 250px; background: linear-gradient(to top, #004e7c, #2c5f2d);"></div>
-                                <div class="bar-label">Qualité</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="chart-card">
-                        <div class="chart-header">
-                            <div class="chart-title">Comparaison Trimestrielle</div>
-                        </div>
-                        <div class="chart">
-                            <div class="chart-bar">
-                                <div class="bar" style="height: 120px; background: #2c5f2d;"></div>
-                                <div class="bar-label">T1</div>
-                            </div>
-                            <div class="chart-bar">
-                                <div class="bar" style="height: 180px; background: #2c5f2d;"></div>
-                                <div class="bar-label">T2</div>
-                            </div>
-                            <div class="chart-bar">
-                                <div class="bar" style="height: 220px; background: #2c5f2d;"></div>
-                                <div class="bar-label">T3</div>
-                            </div>
-                            <div class="chart-bar">
-                                <div class="bar" style="height: 180px; background: #ccc;"></div>
-                                <div class="bar-label">T4</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="stat-value">64%</div>
+                    <div class="stat-label">Actions Réalisées</div>
                 </div>
-                
-                <div class="page-header">
-                    <h2><i class="fas fa-table"></i> Détail des Indicateurs</h2>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <div class="stat-value">28%</div>
+                    <div class="stat-label">Actions en Cours</div>
                 </div>
-                
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Indicateur</th>
-                                <th>Cible</th>
-                                <th>Réalisé</th>
-                                <th>Taux</th>
-                            </tr>
-                        </thead>
-                    
-                    </table>
+                <div class="stat-card">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="stat-value">8%</div>
+                    <div class="stat-label">Actions Retardées</div>
                 </div>
             </div>
-            <!-- Mission -->
-            <div class="main-content" id="mission">
-                <div class="page-header">
-                    <h2><i class="fas fa-project-diagram"></i>Mission</h2>
-                    <p>Gestion et suivi des projets en cours et à venir</p>
+            <div class="form-container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 style="color: var(--primary);">Nouveau Plan d'Action</h3>
+                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Créer un Plan</button>
                 </div>
-            </div>
-            <!-- Gestion de projet -->
-            <div class="main-content" id="projects">
-                <div class="page-header">
-                    <h2><i class="fas fa-project-diagram"></i> Projets</h2>
-                    <p>Gestion et suivi des projets en cours et à venir</p>
-                </div>
-                
-                <div class="form-container">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group">
-                            <label>Statut du Projet</label>
-                            <select class="form-control">
-                                <option>Tous les statuts</option>
-                                <option>En cours</option>
-                                <option>Terminé</option>
-                                <option>En retard</option>
-                                <option>Planifié</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Nouveau Projet</button>
-                </div>
-                
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Projet</th>
-                                <th>Domaine</th>
-                                <th>Budget</th>
-                                <th>Date Début</th>
-                                <th>Date Fin</th>
-                                <th>Avancement</th>
-                                <th>Statut</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
-        
-            <!-- Activités -->
-            <div class="main-content" id="activites">
-                <div class="page-header">
-                    <h2><i class="fas fa-business-time"></i>Activités</h2>
-                    <p>Gestion et suivi des projets en cours et à venir</p>
-                </div>
-            </div>
-            <!-- Page d'évaluation -->
-            <div class="main-content" id="evaluations">
-                <div class="page-header">
-                    <h2><i class="fas fa-clipboard-check"></i> Évaluations Trimestrielles</h2>
-                    <p>Rapports d'évaluation périodiques des performances ministérielles</p>
-                </div>
-                
-                <div class="stats-container">
-                    <div class="stat-card">
-                        <i class="fas fa-calendar-alt"></i>
-                        <div class="stat-value">T3 2023</div>
-                        <div class="stat-label">Évaluation en cours</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-check"></i>
-                        <div class="stat-value">76%</div>
-                        <div class="stat-label">Objectifs Atteints</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-chart-pie"></i>
-                        <div class="stat-value">18</div>
-                        <div class="stat-label">Indicateurs Évalués</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <div class="stat-value">3</div>
-                        <div class="stat-label">Domaines Critiques</div>
-                    </div>
-                </div>
-                
-                <div class="form-container">
-                    <h3 style="margin-bottom: 20px; color: var(--primary);">Rapport d'Évaluation Trimestriel</h3>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group">
-                            <label>Période d'Évaluation</label>
-                            <select class="form-control">
-                                <option>3ème Trimestre 2023 (Juillet-Septembre)</option>
-                                <option>2ème Trimestre 2023 (Avril-Juin)</option>
-                                <option>1er Trimestre 2023 (Janvier-Mars)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Responsable d'Évaluation</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div class="form-group">
-                        <label>Synthèse des Performances</label>
-                        <textarea class="form-control" rows="4"></textarea>
+                        <label>Intitulé du Plan</label>
+                        <input type="text" class="form-control" placeholder="Nom du plan d'action">
                     </div>
-                    
                     <div class="form-group">
-                        <label>Recommandations</label>
-                        <textarea class="form-control" rows="4">    </textarea>
-                    </div>
-                    
-                    <button class="btn btn-primary"><i class="fas fa-download"></i> Générer le Rapport</button>
-                    <button class="btn" style="background: #e0e0e0; margin-left: 10px;">Soumettre pour Validation</button>
-                </div>
-                
-                <div class="page-header">
-                    <h2><i class="fas fa-history"></i> Historique des Évaluations</h2>
-                </div>
-                
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Période</th>
-                                <th>Date d'Évaluation</th>
-                                <th>Indicateurs Évalués</th>
-                                <th>Taux de Réussite</th>
-                                <th>Statut</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
-        <!-- Rapports Page -->
-            <div class="main-content" id="rapports">
-                <div class="page-header">
-                    <h2><i class="fas fa-file-alt"></i> Rapports d'Activités</h2>
-                    <p>Suivi et génération des rapports d'activités ministérielles</p>
-                </div>
-                
-                <div class="form-container">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group">
-                            <label>Type de Rapport</label>
-                            <select class="form-control">
-                                <option>Rapport Mensuel</option>
-                                <option>Rapport Trimestriel</option>
-                                <option>Rapport Annuel</option>
-                                <option>Rapport Spécial</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Période</label>
-                            <input type="month" class="form-control" value="2023-09">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Ministère/Unité</label>
+                        <label>Ministère Responsable</label>
                         <select class="form-control">
-                            <option>Tous les ministères</option>
-                            <option>Ministère de l'Éducation</option>
-                            <option>Ministère de la Santé</option>
-                            <option>Ministère des Infrastructures</option>
+                            <option>Sélectionner un ministère</option>
+                            <option>Éducation</option>
+                            <option>Santé</option>
+                            <option>Infrastructures</option>
                         </select>
                     </div>
-                    
-                    <button class="btn btn-primary"><i class="fas fa-download"></i> Générer le Rapport</button>
-                    <button class="btn" style="background: #e0e0e0; margin-left: 10px;"><i class="fas fa-envelope"></i> Envoyer par Email</button>
                 </div>
-                
-                <div class="page-header">
-                    <h2><i class="fas fa-history"></i> Rapports Récents</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Date de Début</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Date de Fin Prévisionnelle</label>
+                        <input type="date" class="form-control">
+                    </div>
                 </div>
-                
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Type</th>
-                                <th>Période</th>
-                                <th>Ministère</th>
-                                <th>Date de Génération</th>
-                                <th>Taille</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
+                <div class="form-group">
+                    <label>Objectif Principal</label>
+                    <textarea class="form-control" rows="3" placeholder="Décrire l'objectif principal de ce plan d'action"></textarea>
+                </div>
+            </div>
+            <div class="page-header">
+                <h2><i class="fas fa-list-ul"></i> Plans d'Action en Cours</h2>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Plan d'Action</th>
+                            <th>Responsable</th>
+                            <th>Date Début</th>
+                            <th>Date Fin</th>
+                            <th>Avancement</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Placeholder for dynamic data -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-                    </table>
+        <!-- Gestion des Risques -->
+        <div class="main-content" id="risque">
+            <div class="page-header">
+                <h2><i class="fas fa-exclamation-triangle"></i> Gestion des Risques</h2>
+                <p>Identification, évaluation et mitigation des risques ministériels</p>
+            </div>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <div class="stat-value">15</div>
+                    <div class="stat-label">Risques Identifiés</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-radiation"></i>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Risques Élevés</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Risques Atténués</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-double"></i>
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Risques Clôturés</div>
                 </div>
             </div>
-            <!-- Plan d'Action Page -->
-            <div class="main-content" id="plan-d-action">
-                <div class="page-header">
-                    <h2><i class="fas fa-tasks"></i> Plan d'Action</h2>
-                    <p>Gestion et suivi des plans d'action ministériels</p>
+            <div class="form-container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 style="color: var(--primary);">Nouveau Risque</h3>
+                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Déclarer un Risque</button>
                 </div>
-                
-                <div class="stats-container">
-                    <div class="stat-card">
-                        <i class="fas fa-list-alt"></i>
-                        <div class="stat-value">12</div>
-                        <div class="stat-label">Plans d'Action Actifs</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-check-circle"></i>
-                        <div class="stat-value">64%</div>
-                        <div class="stat-label">Actions Réalisées</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-clock"></i>
-                        <div class="stat-value">28%</div>
-                        <div class="stat-label">Actions en Cours</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <div class="stat-value">8%</div>
-                        <div class="stat-label">Actions Retardées</div>
-                    </div>
-                </div>
-                
-                <div class="form-container">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                        <h3 style="color: var(--primary);">Nouveau Plan d'Action</h3>
-                        <button class="btn btn-primary"><i class="fas fa-plus"></i> Créer un Plan</button>
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group">
-                            <label>Intitulé du Plan</label>
-                            <input type="text" class="form-control" placeholder="Nom du plan d'action">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Ministère Responsable</label>
-                            <select class="form-control">
-                                <option>Sélectionner un ministère</option>
-                                <option>Éducation</option>
-                                <option>Santé</option>
-                                <option>Infrastructures</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group">
-                            <label>Date de Début</label>
-                            <input type="date" class="form-control">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Date de Fin Prévisionnelle</label>
-                            <input type="date" class="form-control">
-                        </div>
-                    </div>
-                    
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div class="form-group">
-                        <label>Objectif Principal</label>
-                        <textarea class="form-control" rows="3" placeholder="Décrire l'objectif principal de ce plan d'action"></textarea>
+                        <label>Type de Risque</label>
+                        <select class="form-control">
+                            <option>Sélectionner un type</option>
+                            <option>Opérationnel</option>
+                            <option>Financier</option>
+                            <option>Technique</option>
+                            <option>Politique</option>
+                            <option>Environnemental</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Niveau de Risque</label>
+                        <select class="form-control">
+                            <option>Faible</option>
+                            <option>Moyen</option>
+                            <option>Élevé</option>
+                            <option>Critique</option>
+                        </select>
                     </div>
                 </div>
-                
-                <div class="page-header">
-                    <h2><i class="fas fa-list-ul"></i> Plans d'Action en Cours</h2>
+                <div class="form-group">
+                    <label>Description du Risque</label>
+                    <textarea class="form-control" rows="3" placeholder="Décrire le risque identifié"></textarea>
                 </div>
-                
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Plan d'Action</th>
-                                <th>Responsable</th>
-                                <th>Date Début</th>
-                                <th>Date Fin</th>
-                                <th>Avancement</th>
-                                <th>Statut</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        
-                    </table>
+                <div class="form-group">
+                    <label>Plan d'Atténuation</label>
+                    <textarea class="form-control" rows="3" placeholder="Décrire les mesures d'atténuation prévues"></textarea>
                 </div>
             </div>
-            
-            <!-- Gestion des Risques Page -->
-            <div class="main-content" id="risque">
-                <div class="page-header">
-                    <h2><i class="fas fa-exclamation-triangle"></i> Gestion des Risques</h2>
-                    <p>Identification, évaluation et mitigation des risques ministériels</p>
-                </div>
-                
-                <div class="stats-container">
-                    <div class="stat-card">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <div class="stat-value">15</div>
-                        <div class="stat-label">Risques Identifiés</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-radiation"></i>
-                        <div class="stat-value">5</div>
-                        <div class="stat-label">Risques Élevés</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <div class="stat-value">8</div>
-                        <div class="stat-label">Risques Atténués</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-check-double"></i>
-                        <div class="stat-value">2</div>
-                        <div class="stat-label">Risques Clôturés</div>
-                    </div>
-                </div>
-                
-                <div class="form-container">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                        <h3 style="color: var(--primary);">Nouveau Risque</h3>
-                        <button class="btn btn-primary"><i class="fas fa-plus"></i> Déclarer un Risque</button>
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group">
-                            <label>Type de Risque</label>
-                            <select class="form-control">
-                                <option>Sélectionner un type</option>
-                                <option>Opérationnel</option>
-                                <option>Financier</option>
-                                <option>Technique</option>
-                                <option>Politique</option>
-                                <option>Environnemental</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Niveau de Risque</label>
-                            <select class="form-control">
-                                <option>Faible</option>
-                                <option>Moyen</option>
-                                <option>Élevé</option>
-                                <option>Critique</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Description du Risque</label>
-                        <textarea class="form-control" rows="3" placeholder="Décrire le risque identifié"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Plan d'Atténuation</label>
-                        <textarea class="form-control" rows="3" placeholder="Décrire les mesures d'atténuation prévues"></textarea>
-                    </div>
-                </div>
-                
-                <div class="page-header">
-                    <h2><i class="fas fa-list"></i> Risques Identifiés</h2>
-                </div>
-                
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Risque</th>
-                                <th>Type</th>
-                                <th>Niveau</th>
-                                <th>Probabilité</th>
-                                <th>Impact</th>
-                                <th>Statut</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
+            <div class="page-header">
+                <h2><i class="fas fa-list"></i> Risques Identifiés</h2>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Risque</th>
+                            <th>Type</th>
+                            <th>Niveau</th>
+                            <th>Probabilité</th>
+                            <th>Impact</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Placeholder for dynamic data -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-                    </table>
-                </div>
+        <!-- Aide & Support -->
+        <div class="main-content" id="help">
+            <div class="page-header">
+                <h2><i class="fas fa-question-circle"></i> Aide & Support</h2>
             </div>
-            
-        </main>
-    </div> 
+            <div class="form-container">
+                <div class="form-group">
+                    <label>Contacter le Support</label>
+                    <textarea class="form-control" rows="5" placeholder="Décrivez votre problème ou question"></textarea>
+                </div>
+                <button class="btn btn-primary">Envoyer</button>
+            </div>
+        </div>
+    </main>
+</div>
+
 {% include 'partials/footer.html.twig' %}
+
 {% endblock %}

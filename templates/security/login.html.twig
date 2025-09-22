@@ -2,8 +2,7 @@
 
 {% block title %}Log in!{% endblock %}
 
-{% block body %}
-<form method="post">
+{% block body %}   
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -13,22 +12,60 @@
             You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-    <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
-
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" name="_remember_me"> Remember me
-        </label>
+    
+<div class="login-container">
+    <div class="login-left">
+        <div class="brand-info">
+            <i class="fas fa-chart-line brand-icon"></i>
+            <h2 class="brand-title">SUIVI DE PROJET</h2>
+            <p class="brand-subtitle">Suivez et évaluez vos projets en toute sécurité</p>
+        </div>
+        
+        <ul class="feature-list">
+            <li><i class="fas fa-check"></i> Gestion centralisée de tous vos projets</li>
+            <li><i class="fas fa-check"></i> Tableaux de bord personnalisables</li>
+            <li><i class="fas fa-check"></i> Rapports d'avancement détaillés</li>
+            <li><i class="fas fa-check"></i> Outils collaboratifs pour votre équipe</li>
+        </ul>
     </div>
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+    <div class="login-right">
+        <div class="login-header">
+            <h2 class="login-title">Connexion</h2>
+            <p class="login-subtitle">Accédez à votre espace de suivi de projet</p>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Adresse email</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <input type="email" class="form-control" id="email" placeholder="votre@email.com" required>
+            </div>
+            <div class="invalid-feedback" id="emailError"></div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="password" class="form-label">Mot de passe</label>
+            <div class="position-relative">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control" id="password" placeholder="Votre mot de passe" required>
+                </div>
+                <span class="password-toggle" id="passwordToggle">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
+            <div class="invalid-feedback" id="passwordError"></div>
+        </div>
+        
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="rememberMe">
+            <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+            <a href="#" class="float-end">Mot de passe oublié?</a>
+        </div>
+        
+        <button type="submit" class="btn btn-primary w-100 mb-3">Se connecter</button>      
+        <div class="login-footer">
+            <p>Vous n'avez pas de compte? <a href="#">Créer un compte</a></p>
+        </div>
+    </div>
+</div>
 {% endblock %}
