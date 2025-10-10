@@ -8,121 +8,125 @@
 
 {% block body %}
 {% include 'partials/header.html.twig' %} 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
+<!-- Main Content -->
+<main>
+    <!-- Hero Section -->
     <div class="content">
         <section class="hero-section">
             <h1 class="hero-title">Bienvenue sur la plateforme de suivi stratégique</h1>
             <p class="hero-description">Cette plateforme dédiée permet le suivi des projets stratégiques et des indicateurs de performance du Ministère de la Communication et de la Culture de Madagascar.</p>
-            <a href="{{path('app_login')}}" class="btn-explore">Accéder à la plateforme <i class="fas fa-arrow-right ms-2"></i></a><br><br><br>
+            <a href="{{ path('app_login') }}" class="btn-explore">Accéder à la plateforme <i class="fas fa-arrow-right ms-2"></i></a><br><br><br>
             <a href="#features" class="btn-explore">En savoir plus <i class="fas fa-info-circle ms-2"></i></a>
         </section>
-    
+
         <section id="features">
-                <h2 class="section-title">Fonctionnalités principales</h2>
-                <p class="section-subtitle">Découvrez les outils puissants qui permettent un suivi efficace des projets stratégiques et indicateurs de performance.</p>
+            <h2 class="section-title">Fonctionnalités principales</h2>
+            <p class="section-subtitle">Découvrez les outils puissants qui permettent un suivi efficace des projets stratégiques et indicateurs de performance.</p>
+            
+            <div class="card">
+                <div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Tableaux de bord</h3>
+                        <p>Visualisez les données de performance en temps réel grâce à des tableaux de bord interactifs.</p>
+                    </div>
+                </div>
                 
-                <div class="card">
-                    <div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3>Tableaux de bord</h3>
-                            <p>Visualisez les données de performance en temps réel grâce à des tableaux de bord interactifs.</p>
+                <div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-project-diagram"></i>
                         </div>
+                        <h3>Gestion de projets</h3>
+                        <p>Planifiez, suivez et évaluez l'avancement de tous vos projets stratégiques depuis une interface unique.</p>
                     </div>
-                    
-                    <div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-project-diagram"></i>
-                            </div>
-                            <h3>Gestion de projets</h3>
-                            <p>Planifiez, suivez et évaluez l'avancement de tous vos projets stratégiques depuis une interface unique.</p>
+                </div>
+                
+                <div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-alt"></i>
                         </div>
+                        <h3>Rapports automatisés</h3>
+                        <p>Générez automatiquement des rapports détaillés pour faciliter la prise de décision et la communication.</p>
                     </div>
-                    
-                    <div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <h3>Rapports automatisés</h3>
-                            <p>Générez automatiquement des rapports détaillés pour faciliter la prise de décision et la communication.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <h2 class="section-title">Comment ça marche</h2>
+            <p class="section-subtitle">Notre plateforme simplifie le suivi et l'évaluation de vos projets en 3 étapes simples.</p>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-4 mb-4">
+                    <div class="d-flex align-items-start">
+                        <div class="bg-primary text-white rounded-circle p-3 me-4">
+                            <h2 class="mb-0">1</h2>
+                        </div>
+                        <div>
+                            <h4>Configuration</h4>
+                            <p>Configurez vos projets et indicateurs selon vos besoins spécifiques.</p>
                         </div>
                     </div>
                 </div>
-        </section>
-            <section class="py-5">
-                <h2 class="section-title">Comment ça marche</h2>
-                <p class="section-subtitle">Notre plateforme simplifie le suivi et l'évaluation de vos projets en 3 étapes simples.</p>
-                
-                <div class="row align-items-center">
-                    <div class="col-lg-4 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="bg-primary text-white rounded-circle p-3 me-4">
-                                <h2 class="mb-0">1</h2>
-                            </div>
-                            <div>
-                                <h4>Configuration</h4>
-                                <p>Configurez vos projets et indicateurs selon vos besoins spécifiques.</p>
-                            </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="d-flex align-items-start">
+                        <div class="bg-primary text-white rounded-circle p-3 me-4">
+                            <h2 class="mb-0">2</h2>
                         </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="bg-primary text-white rounded-circle p-3 me-4">
-                                <h2 class="mb-0">2</h2>
-                            </div>
-                            <div>
-                                <h4>Suivi</h4>
-                                <p>Suivez en temps réel l'avancement de vos projets et indicateurs.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="d-flex align-items-start">
-                            <div class="bg-primary text-white rounded-circle p-3 me-4">
-                                <h2 class="mb-0">3</h2>
-                            </div>
-                            <div>
-                                <h4>Analyse</h4>
-                                <p>Analysez les résultats et générez des rapports détaillés.</p>
-                            </div>
+                        <div>
+                            <h4>Suivi</h4>
+                            <p>Suivez en temps réel l'avancement de vos projets et indicateurs.</p>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="d-flex align-items-start">
+                        <div class="bg-primary text-white rounded-circle p-3 me-4">
+                            <h2 class="mb-0">3</h2>
+                        </div>
+                        <div>
+                            <h4>Analyse</h4>
+                            <p>Analysez les résultats et générez des rapports détaillés.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+
         <section class="public-resources bg-light-custom">
-                <h2 class="section-title">Ressources disponibles</h2>
-                <p class="section-subtitle">Accédez aux documents et ressources pour tirer le meilleur parti de la plateforme.</p>
-                
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="resource-card">
-                            <h4><i class="fas fa-file-pdf text-danger me-2"></i> Guides d'utilisation</h4>
-                            <a href="#" class="btn btn-sm btn-outline-primary">Télécharger</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="resource-card">
-                            <h4><i class="fas fa-book text-warning me-2"></i> Documentation technique</h4>
-                            <a href="#" class="btn btn-sm btn-outline-primary">Consulter</a>
-                        </div>
+            <h2 class="section-title">Ressources disponibles</h2>
+            <p class="section-subtitle">Accédez aux documents et ressources pour tirer le meilleur parti de la plateforme.</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="resource-card">
+                        <h4><i class="fas fa-file-pdf text-danger me-2"></i> Guides d'utilisation</h4>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Télécharger</a>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="resource-card">
+                        <h4><i class="fas fa-book text-warning me-2"></i> Documentation technique</h4>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Consulter</a>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
-        <!-- Call to Action Section -->
-        <section class="cta-section">
-                <h2 class="mb-4">Prêt à optimiser votre suivi de projets?</h2>
-                <p class="mb-4">Rejoignez les nombreuses organisations qui utilisent déjà notre plateforme pour améliorer leur gestion de projets.</p>
-                <a href="#" class="btn btn-light btn-lg me-3">Créer un compte</a>
-                <a href="#" class="btn btn-light btn-lg me-3">Nous contacter</a>
-        </section>
-    </main>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <h2 class="mb-4">Prêt à optimiser votre suivi de projets?</h2>
+        <p class="mb-4">Rejoignez les nombreuses organisations qui utilisent déjà notre plateforme pour améliorer leur gestion de projets.</p>
+        <!-- Redirection vers inscription -->
+        <a href="{{ path('user_registration') }}" class="btn btn-light btn-lg me-3">Créer un compte</a>
+        <a href="{{ path('app_login') }}" class="btn btn-light btn-lg me-3">Se connecter</a>
+    </section>
+</main>
 
 {% include 'partials/footer.html.twig' %}
 {% endblock %}
